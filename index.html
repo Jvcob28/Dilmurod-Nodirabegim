@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Dilmurod & Nodirabegim — To‘y taklifnomasi</title>
+<meta name="description" content="Dilmurod va Nodirabegimning to‘y taklifnomasi — 24 sentabr 2026, Fayz restorani." />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Dilmurod & Nodirabegim — To‘y taklifnomasi" />
+<meta property="og:description" content="24 sentabr 2026 • Fayz restorani. Biz turmush qurmoqdamiz." />
+<meta property="og:image" content="og-image.jpg" />
+<!-- ⬆ Replace og-image.jpg with a real 1200×630 photo before sharing the link in Telegram/Instagram -->
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%232A241D'/%3E%3Ctext x='32' y='40' font-family='Georgia,serif' font-size='24' fill='%23C9A96A' text-anchor='middle'%3ED%26N%3C/text%3E%3C/svg%3E" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+<style>
+  /* ===================== TOKENS ===================== */
+  :root{
+    --ivory:#F7F1E6;
+    --warm-white:#FCF9F3;
+    --champagne:#E9D8BB;
+    --beige:#DFD1B9;
+    --gold-deep:#8A6A3D;
+    --gold:#B08D57;
+    --gold-light:#D8C093;
+    --ink:#2A241D;
+    --ink-soft:#514738;
+    --ink-faint:#8b7f6c;
+    --line: rgba(42,36,29,0.14);
+    --serif: 'Cormorant Garamond', 'Times New Roman', serif;
+    --sans: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+    --ease: cubic-bezier(.22,1,.36,1);
+    --section-pad: clamp(72px, 12vh, 140px);
+  }
+
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    background:var(--ivory);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-weight:300;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+    position:relative;
+  }
+
+  /* subtle film grain */
+  body::before{
+    content:"";
+    position:fixed; inset:0;
+    z-index:2;
+    pointer-events:none;
+    opacity:.05;
+    mix-blend-mode:multiply;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* subtle vignette warmth */
+  body::after{
+    content:"";
+    position:fixed; inset:0;
+    z-index:1;
+    pointer-events:none;
+    background:radial-gradient(120% 90% at 50% 0%, rgba(255,252,244,0) 40%, rgba(138,106,61,0.06) 100%);
+  }
+
+  img{ max-width:100%; display:block; }
+  a{ color:inherit; }
+  section{ position:relative; z-index:3; }
+
+  ::selection{ background:var(--gold-light); color:var(--ink); }
+
+  /* focus visibility for accessibility */
+  a:focus-visible, button:focus-visible, input:focus-visible{
+    outline:2px solid var(--gold-deep);
+    outline-offset:3px;
+  }
+
+  /* ===================== TYPE HELPERS ===================== */
+  .eyebrow{
+    font-family:var(--sans);
+    font-size:11.5px;
+    letter-spacing:.32em;
+    text-transform:uppercase;
+    color:var(--gold-deep);
+    font-weight:500;
+  }
+  .serif{ font-family:var(--serif); }
+  .hairline{
+    width:1px; height:44px;
+    background:linear-gradient(to bottom, transparent, var(--gold), transparent);
+    margin:0 auto;
+  }
+  .hairline-h{
+    height:1px;
+    background:linear-gradient(to right, transparent, var(--gold) 50%, transparent);
+  }
+
+  .container{
+    max-width:720px;
+    margin:0 auto;
+    padding:0 28px;
+  }
+
+  /* ===================== REVEAL ANIMATION SYSTEM ===================== */
+  .reveal{
+    opacity:0;
+    transform:translateY(28px);
+    filter:blur(6px);
+    transition:opacity 1.1s var(--ease), transform 1.1s var(--ease), filter 1.1s var(--ease);
+  }
+  .reveal.in-view{
+    opacity:1; transform:translateY(0); filter:blur(0);
+  }
+  .reveal-delay-1{ transition-delay:.12s; }
+  .reveal-delay-2{ transition-delay:.24s; }
+  .reveal-delay-3{ transition-delay:.36s; }
+  .reveal-delay-4{ transition-delay:.48s; }
+
+  .word-reveal span{
+    display:inline-block;
+    opacity:0;
+    transform:translateY(.5em);
+    filter:blur(4px);
+    transition:opacity .9s var(--ease), transform .9s var(--ease), filter .9s var(--ease);
+  }
+  .word-reveal.in-view span{ opacity:1; transform:translateY(0); filter:blur(0); }
+
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior:auto; }
+    .reveal, .word-reveal span{
+      transition-duration:.01s !important;
+      opacity:1 !important; transform:none !important; filter:none !important;
+    }
+    .floaty, .shimmer, .cursor-follow{ animation:none !important; transform:none !important; }
+  }
+
+  /* ===================== BOTANICAL LINE ART ===================== */
+  .botanical{
+    position:absolute;
+    pointer-events:none;
+    z-index:1;
+    opacity:.5;
+    color:var(--gold);
+    will-change:transform;
+  }
+  .botanical svg{ width:100%; height:100%; overflow:visible; }
+  .botanical-inner{ width:100%; height:100%; }
+  .floaty{ animation:floaty 14s ease-in-out infinite; }
+  .floaty-slow{ animation:floaty 20s ease-in-out infinite; animation-delay:-6s; }
+  @keyframes floaty{
+    0%,100%{ transform:translate(0,0) rotate(0deg); }
+    50%{ transform:translate(6px,-14px) rotate(2deg); }
+  }
+
+  /* gold shimmer sweep on key numerals */
+  .shimmer{
+    background:linear-gradient(100deg, var(--gold-deep) 30%, var(--gold-light) 45%, #F4E6C8 50%, var(--gold-light) 55%, var(--gold-deep) 70%);
+    background-size:220% 100%;
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    animation:shimmer 6s linear infinite;
+  }
+  @keyframes shimmer{ from{ background-position:180% 0; } to{ background-position:-40% 0; } }
+
+  /* ===================== HERO ===================== */
+  .hero{
+    min-height:100svh;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center;
+    padding:32px 24px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-date{
+    font-family:var(--sans);
+    font-size:12px;
+    letter-spacing:.4em;
+    color:var(--ink-faint);
+    opacity:0; transform:translateY(10px); filter:blur(6px);
+    transition:opacity 1.2s var(--ease), transform 1.2s var(--ease), filter 1.2s var(--ease);
+    margin-bottom:28px;
+  }
+  .hero-date.show{ opacity:1; transform:translateY(0); filter:blur(0); }
+
+  .hero-names{
+    font-family:var(--serif);
+    line-height:.98;
+    color:var(--ink);
+  }
+  .hero-name{
+    display:block;
+    font-size:clamp(48px, 13vw, 108px);
+    font-weight:400;
+    letter-spacing:.01em;
+    opacity:0; transform:translateY(22px); filter:blur(10px);
+    transition:opacity 1.3s var(--ease), transform 1.3s var(--ease), filter 1.3s var(--ease);
+  }
+  .hero-name.show{ opacity:1; transform:translateY(0); filter:blur(0); }
+  .hero-amp{
+    display:block;
+    font-family:var(--serif);
+    font-style:italic;
+    font-size:clamp(26px, 5vw, 40px);
+    color:var(--gold-deep);
+    margin:4px 0;
+    opacity:0; transition:opacity 1.1s var(--ease);
+  }
+  .hero-amp.show{ opacity:1; }
+
+  .hero-tagline{
+    margin-top:34px;
+    font-family:var(--serif);
+    font-style:italic;
+    font-size:clamp(17px, 3vw, 22px);
+    color:var(--ink-soft);
+    opacity:0; transform:translateY(10px);
+    transition:opacity 1s var(--ease), transform 1s var(--ease);
+  }
+  .hero-tagline.show{ opacity:1; transform:translateY(0); }
+
+  .hero-caption{
+    margin-top:14px;
+    font-size:12px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--ink-faint);
+    opacity:0;
+    transition:opacity 1s var(--ease);
+  }
+  .hero-caption.show{ opacity:1; }
+
+  .scroll-cue{
+    position:absolute; bottom:36px; left:50%; transform:translateX(-50%);
+    display:flex; flex-direction:column; align-items:center; gap:10px;
+    font-size:10.5px; letter-spacing:.3em; text-transform:uppercase; color:var(--ink-faint);
+    opacity:0; transition:opacity 1.2s var(--ease) 1.4s;
+  }
+  .scroll-cue.show{ opacity:1; }
+  .scroll-cue .line{
+    width:1px; height:34px;
+    background:var(--ink-faint);
+    position:relative; overflow:hidden;
+  }
+  .scroll-cue .line::after{
+    content:""; position:absolute; left:0; top:-100%; width:100%; height:100%;
+    background:var(--gold-deep);
+    animation:cue 2.2s ease-in-out infinite;
+  }
+  @keyframes cue{ 0%{ top:-100%; } 60%{ top:100%; } 100%{ top:100%; } }
+
+  /* ===================== SECTION SHELL ===================== */
+  .section{
+    padding:var(--section-pad) 0;
+    text-align:center;
+  }
+  .section h2.eyebrow{ margin-bottom:22px; }
+  .section-title{
+    font-family:var(--serif);
+    font-size:clamp(30px, 5vw, 46px);
+    font-weight:400;
+    margin:0 0 24px;
+    color:var(--ink);
+  }
+  .body-text{
+    font-family:var(--serif);
+    font-size:clamp(17px,2.4vw,20px);
+    line-height:1.75;
+    color:var(--ink-soft);
+    max-width:52ch;
+    margin:0 auto;
+  }
+  .body-text + .body-text{ margin-top:1.4em; }
+
+  .signature{
+    margin-top:40px;
+    font-family:var(--serif);
+    font-style:italic;
+    font-size:19px;
+    color:var(--ink-soft);
+  }
+  .signature strong{
+    display:block;
+    font-style:normal;
+    margin-top:6px;
+    font-size:22px;
+    color:var(--ink);
+    font-weight:500;
+  }
+
+  /* ===================== DATE / CALENDAR ===================== */
+  .date-block{ margin:36px 0 44px; position:relative; }
+  .date-num{
+    font-family:var(--serif);
+    font-size:clamp(120px, 32vw, 220px);
+    line-height:.85;
+    font-weight:400;
+  }
+  .date-sub{
+    font-size:clamp(20px, 4vw, 28px);
+    letter-spacing:.5em;
+    text-transform:uppercase;
+    font-weight:500;
+    color:var(--ink);
+    margin-top:6px;
+  }
+  .date-year{
+    font-family:var(--serif);
+    font-style:italic;
+    font-size:20px;
+    color:var(--ink-faint);
+    margin-top:2px;
+  }
+
+  .calendar{
+    max-width:340px;
+    margin:52px auto 28px;
+    padding:34px 20px 26px;
+    border:1px solid var(--line);
+    border-radius:2px;
+    background:linear-gradient(180deg, var(--warm-white), var(--ivory));
+  }
+  .calendar-month{
+    font-size:12px; letter-spacing:.3em; text-transform:uppercase;
+    color:var(--ink-faint); margin-bottom:20px;
+  }
+  .calendar-grid{
+    display:grid; grid-template-columns:repeat(7,1fr);
+    gap:6px 2px;
+  }
+  .calendar-grid .dow{
+    font-size:10px; color:var(--ink-faint); letter-spacing:.08em; padding-bottom:8px;
+  }
+  .calendar-grid .day{
+    font-family:var(--serif);
+    font-size:15px;
+    color:var(--ink-soft);
+    aspect-ratio:1;
+    display:flex; align-items:center; justify-content:center;
+    position:relative;
+  }
+  .calendar-grid .day.empty{ visibility:hidden; }
+  .calendar-grid .day.wedding{
+    color:var(--warm-white);
+    font-weight:500;
+  }
+  .calendar-grid .day.wedding::before{
+    content:"";
+    position:absolute; inset:2px;
+    border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, var(--gold-light), var(--gold-deep));
+    z-index:-1;
+    box-shadow:0 2px 10px rgba(138,106,61,.35);
+  }
+
+  .date-note{
+    margin-top:8px;
+    font-family:var(--serif);
+    font-style:italic;
+    font-size:17px;
+    color:var(--ink-soft);
+  }
+
+  /* ===================== COUNTDOWN ===================== */
+  .countdown{
+    display:flex; justify-content:center; gap:clamp(10px,4vw,28px);
+    margin-top:44px; flex-wrap:wrap;
+  }
+  .countdown .unit{
+    min-width:74px;
+  }
+  .countdown .num{
+    font-family:var(--serif);
+    font-size:clamp(38px,7vw,58px);
+    font-variant-numeric:tabular-nums;
+    color:var(--ink);
+    transition:opacity .3s ease;
+  }
+  .countdown .label{
+    margin-top:6px;
+    font-size:10.5px; letter-spacing:.24em; text-transform:uppercase;
+    color:var(--ink-faint);
+  }
+  .countdown .sep{
+    font-family:var(--serif); font-size:34px; color:var(--gold);
+    align-self:flex-start; margin-top:4px;
+  }
+
+  /* ===================== VENUE ===================== */
+  .venue-card{
+    margin:34px auto 0;
+    max-width:420px;
+    padding:38px 30px;
+    border:1px solid var(--line);
+    background:var(--warm-white);
+  }
+  .venue-name{
+    font-family:var(--serif);
+    font-size:30px;
+    color:var(--ink);
+    margin:6px 0 10px;
+  }
+  .venue-address{
+    font-size:14px;
+    color:var(--ink-faint);
+    letter-spacing:.02em;
+    margin-bottom:22px;
+  }
+  .btn-outline{
+    display:inline-flex; align-items:center; gap:10px;
+    padding:14px 30px;
+    border:1px solid var(--gold-deep);
+    color:var(--ink);
+    text-decoration:none;
+    font-size:12.5px;
+    letter-spacing:.2em;
+    text-transform:uppercase;
+    background:transparent;
+    cursor:pointer;
+    transition:background .4s var(--ease), color .4s var(--ease);
+    font-family:var(--sans);
+  }
+  .btn-outline:hover{ background:var(--ink); color:var(--warm-white); border-color:var(--ink); }
+
+  /* ===================== DRESS CODE ===================== */
+  .palette{
+    display:flex; justify-content:center; gap:16px; margin-top:38px; flex-wrap:wrap;
+  }
+  .swatch{
+    width:56px; height:56px; border-radius:50%;
+    border:1px solid var(--line);
+    box-shadow:inset 0 0 0 3px var(--ivory);
+  }
+
+  /* ===================== RSVP ===================== */
+  .rsvp-form{
+    max-width:420px; margin:40px auto 0;
+    display:flex; flex-direction:column; gap:22px;
+    text-align:left;
+  }
+  .field label{
+    display:block; font-size:11px; letter-spacing:.2em; text-transform:uppercase;
+    color:var(--ink-faint); margin-bottom:10px;
+  }
+  .field input[type="text"]{
+    width:100%;
+    background:transparent;
+    border:none;
+    border-bottom:1px solid var(--line);
+    padding:10px 2px;
+    font-family:var(--serif);
+    font-size:18px;
+    color:var(--ink);
+    transition:border-color .3s ease;
+  }
+  .field input[type="text"]:focus{ border-color:var(--gold-deep); }
+  .field input[type="text"]::placeholder{ color:var(--ink-faint); opacity:.5; }
+
+  .rsvp-options{ display:flex; gap:12px; flex-wrap:wrap; }
+  .rsvp-options input{ display:none; }
+  .rsvp-options label{
+    flex:1; min-width:150px;
+    text-align:center;
+    padding:14px 12px;
+    border:1px solid var(--line);
+    font-size:13px;
+    letter-spacing:.02em;
+    color:var(--ink-soft);
+    cursor:pointer;
+    transition:all .3s var(--ease);
+    text-transform:none;
+    font-family:var(--sans);
+  }
+  .rsvp-options input:checked + label{
+    background:var(--ink);
+    color:var(--warm-white);
+    border-color:var(--ink);
+  }
+
+  .btn-solid{
+    margin-top:6px;
+    padding:16px;
+    background:var(--ink);
+    color:var(--warm-white);
+    border:none;
+    font-family:var(--sans);
+    font-size:12.5px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    cursor:pointer;
+    transition:background .3s var(--ease), transform .2s ease;
+  }
+  .btn-solid:hover{ background:var(--gold-deep); }
+  .btn-solid:active{ transform:scale(.98); }
+  .btn-solid:disabled{ opacity:.6; cursor:default; }
+
+  .rsvp-success{
+    display:none;
+    text-align:center;
+    padding:30px 10px 6px;
+    font-family:var(--serif);
+    font-style:italic;
+    font-size:19px;
+    color:var(--gold-deep);
+    opacity:0;
+    transform:translateY(8px);
+    transition:opacity .8s var(--ease), transform .8s var(--ease);
+  }
+  .rsvp-success.show{ display:block; opacity:1; transform:translateY(0); }
+
+  /* ===================== FINAL ===================== */
+  .final{
+    min-height:100svh;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center;
+    background:linear-gradient(180deg, var(--ivory), #F1E7D5 60%, var(--champagne));
+    padding:60px 24px;
+  }
+  .final-line{
+    font-family:var(--serif);
+    font-size:clamp(26px,5vw,40px);
+    font-style:italic;
+    color:var(--ink);
+    max-width:14ch;
+  }
+  .monogram{
+    margin:44px 0 30px;
+    width:120px; height:120px;
+    position:relative;
+  }
+  .monogram svg{ width:100%; height:100%; }
+  .monogram-letter{
+    stroke:var(--gold-deep);
+    stroke-width:1.1;
+    fill:none;
+    stroke-dasharray:300;
+    stroke-dashoffset:300;
+    transition:stroke-dashoffset 2.2s var(--ease);
+  }
+  .monogram.in-view .monogram-letter{ stroke-dashoffset:0; }
+  .final-names{ font-family:var(--serif); font-size:26px; color:var(--ink); }
+  .final-date{ margin-top:8px; font-size:13px; letter-spacing:.3em; color:var(--gold-deep); }
+  .final-venue{ margin-top:4px; font-size:13px; letter-spacing:.14em; color:var(--ink-faint); text-transform:uppercase; }
+
+  footer{
+    text-align:center;
+    padding:34px 20px 40px;
+    font-size:11px;
+    letter-spacing:.16em;
+    color:var(--ink-faint);
+    background:var(--champagne);
+  }
+
+  /* ===================== MUSIC TOGGLE ===================== */
+  .music-btn{
+    position:fixed;
+    bottom:22px; right:22px;
+    z-index:50;
+    display:flex; align-items:center; gap:8px;
+    padding:12px 18px;
+    background:rgba(252,249,243,.88);
+    backdrop-filter:blur(6px);
+    border:1px solid var(--line);
+    border-radius:999px;
+    font-family:var(--sans);
+    font-size:11.5px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--ink);
+    cursor:pointer;
+    box-shadow:0 6px 20px rgba(42,36,29,.08);
+    transition:box-shadow .3s ease, background .3s ease;
+  }
+  .music-btn:hover{ box-shadow:0 8px 26px rgba(42,36,29,.14); }
+  .music-btn .dot{
+    width:6px; height:6px; border-radius:50%; background:var(--gold-deep);
+  }
+  .music-btn.playing .dot{ animation:pulse 1.2s ease-in-out infinite; }
+  @keyframes pulse{ 0%,100%{ opacity:.4; transform:scale(1);} 50%{ opacity:1; transform:scale(1.4);} }
+
+  @media (max-width:480px){
+    .music-btn{ padding:10px 14px; font-size:10.5px; bottom:16px; right:16px; }
+    .venue-card{ padding:30px 22px; }
+    :root{ --section-pad: 84px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+  MUZIKA HAQIDA:
+  Pastdagi <audio> teg ichidagi src="" maydoniga o'z mp3 faylingiz
+  yo'lini kiriting, masalan: src="audio/wedding-song.mp3"
+  Musiqa avtomatik va baland ovozda yoqilmaydi — faqat tugma bosilganda.
+============================================================= -->
+<audio id="bgAudio" loop preload="none">
+  <!-- <source src="audio/wedding-song.mp3" type="audio/mpeg"> -->
+</audio>
+
+<button class="music-btn" id="musicBtn" aria-pressed="false" aria-label="Musiqani yoqish yoki o'chirish">
+  <span class="dot"></span>
+  <span id="musicLabel">Musiqa ♫</span>
+</button>
+
+<!-- ======================= HERO ======================= -->
+<section class="hero">
+  <div class="botanical" style="top:8%; left:4%; width:90px; height:130px;">
+    <div class="floaty botanical-inner">
+      <svg viewBox="0 0 90 130" fill="none" stroke="currentColor" stroke-width="1"><path d="M45 130 C 40 90, 55 70, 40 40 C 30 20, 45 5, 45 5"/><path d="M45 95 C 30 90, 20 75, 22 60"/><path d="M45 70 C 60 65, 68 50, 66 35"/><path d="M43 45 C 30 42, 24 30, 28 18"/></svg>
+    </div>
+  </div>
+  <div class="botanical" style="bottom:6%; right:3%; width:100px; height:140px;">
+    <div class="floaty-slow botanical-inner">
+      <svg viewBox="0 0 100 140" fill="none" stroke="currentColor" stroke-width="1"><path d="M55 140 C 60 100, 45 80, 58 50 C 66 30, 52 10, 52 10"/><path d="M55 105 C 70 100, 80 85, 78 70"/><path d="M55 78 C 40 73, 32 58, 34 43"/></svg>
+    </div>
+  </div>
+
+  <p class="hero-date" id="heroDate">24 • 09 • 2026</p>
+  <div class="hero-names">
+    <span class="hero-name" id="n1">Dilmurod</span>
+    <span class="hero-amp" id="amp">&amp;</span>
+    <span class="hero-name" id="n2">Nodirabegim</span>
+  </div>
+  <p class="hero-tagline" id="tagline">Biz turmush qurmoqdamiz</p>
+  <p class="hero-caption" id="caption">24 sentabr 2026</p>
+
+  <div class="scroll-cue" id="scrollCue"><span>Pastga suring</span><span class="line"></span></div>
+</section>
+
+<!-- ======================= TAKLIFNOMA ======================= -->
+<section class="section">
+  <div class="container">
+    <p class="eyebrow reveal">Taklifnoma</p>
+    <h2 class="section-title reveal reveal-delay-1">Aziz mehmonimiz!</h2>
+    <p class="body-text reveal reveal-delay-2">Hayotimizning eng unutilmas va baxtli kunida Sizni yonimizda ko‘rish biz uchun katta baxt.</p>
+    <p class="body-text reveal reveal-delay-2">Sizni nikoh to‘yimiz munosabati bilan tashkil etiladigan tantanali oqshomimizga chin qalbimizdan taklif etamiz.</p>
+    <p class="body-text reveal reveal-delay-3">Ushbu quvonchli kunimizni biz bilan birga nishonlab, baxtimizga sherik bo‘ling!</p>
+    <p class="signature reveal reveal-delay-4">Hurmat bilan,<strong>Dilmurod &amp; Nodirabegim</strong></p>
+  </div>
+</section>
+
+<div class="container"><div class="hairline-h"></div></div>
+
+<!-- ======================= TO'Y KUNI ======================= -->
+<section class="section">
+  <div class="container">
+    <p class="eyebrow reveal">To‘y kuni</p>
+    <div class="date-block reveal reveal-delay-1">
+      <div class="date-num shimmer">24</div>
+      <div class="date-sub">Sentabr</div>
+      <div class="date-year">ikki ming yigirma olti</div>
+    </div>
+
+    <div class="calendar reveal reveal-delay-2">
+      <div class="calendar-month">Sentabr 2026</div>
+      <div class="calendar-grid" id="calendarGrid"><!-- JS orqali to'ldiriladi --></div>
+    </div>
+
+    <p class="date-note reveal reveal-delay-3">Bu kunni biz bilan birga qarshi oling</p>
+  </div>
+</section>
+
+<!-- ======================= COUNTDOWN ======================= -->
+<section class="section" style="background:var(--warm-white);">
+  <div class="container">
+    <p class="eyebrow reveal">Baxtli kunimizgacha</p>
+    <div class="countdown reveal reveal-delay-1">
+      <div class="unit"><div class="num" id="cd-days">00</div><div class="label">Kun</div></div>
+      <div class="sep">:</div>
+      <div class="unit"><div class="num" id="cd-hours">00</div><div class="label">Soat</div></div>
+      <div class="sep">:</div>
+      <div class="unit"><div class="num" id="cd-min">00</div><div class="label">Daqiqa</div></div>
+      <div class="sep">:</div>
+      <div class="unit"><div class="num" id="cd-sec">00</div><div class="label">Soniya</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= MANZIL ======================= -->
+<section class="section">
+  <div class="container">
+    <p class="eyebrow reveal">Manzil</p>
+    <h2 class="section-title reveal reveal-delay-1">Fayz restorani</h2>
+    <div class="venue-card reveal reveal-delay-2">
+      <p class="venue-address">
+        <!-- Manzilni shu yerga kiriting, masalan: "Toshkent sh., ... ko'chasi, 12-uy" -->
+        Aniq manzil tez orada e’lon qilinadi
+      </p>
+      <!--
+        MUHIM: quyidagi href="#" o'rniga Google Maps havolangizni qo'ying,
+        masalan: href="https://maps.google.com/?q=Fayz+restorani"
+      -->
+      <a class="btn-outline" href="#" id="mapLink" target="_blank" rel="noopener">Xaritada ko‘rish</a>
+    </div>
+  </div>
+</section>
+
+<div class="container"><div class="hairline-h"></div></div>
+
+<!-- ======================= DRESS CODE ======================= -->
+<section class="section">
+  <div class="container">
+    <p class="eyebrow reveal">Dress code</p>
+    <p class="body-text reveal reveal-delay-1">Bayramimiz muhitiga mos nafis va tantanali libos tanlashingizdan mamnun bo‘lamiz.</p>
+    <div class="palette reveal reveal-delay-2">
+      <div class="swatch" style="background:#F7F1E6;" title="Ivory"></div>
+      <div class="swatch" style="background:#E9D8BB;" title="Champagne"></div>
+      <div class="swatch" style="background:#DFD1B9;" title="Beige"></div>
+      <div class="swatch" style="background:#B08D57;" title="Muted gold"></div>
+      <div class="swatch" style="background:#4A4038;" title="Deep taupe"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================= RSVP ======================= -->
+<section class="section" style="background:var(--warm-white);">
+  <div class="container">
+    <p class="eyebrow reveal">RSVP</p>
+    <h2 class="section-title reveal reveal-delay-1">Sizni kutamiz!</h2>
+    <p class="body-text reveal reveal-delay-2">Iltimos, tashrifingizni tasdiqlang.</p>
+
+    <form class="rsvp-form reveal reveal-delay-3" id="rsvpForm">
+      <div class="field">
+        <label for="guestName">Ismingiz</label>
+        <input type="text" id="guestName" name="guestName" placeholder="Ism familiyangiz" required />
+      </div>
+
+      <div class="field">
+        <label>Ishtirok holati</label>
+        <div class="rsvp-options">
+          <input type="radio" id="opt-yes" name="attendance" value="Albatta, boraman" required>
+          <label for="opt-yes">Albatta, boraman</label>
+          <input type="radio" id="opt-no" name="attendance" value="Afsuski, bora olmayman">
+          <label for="opt-no">Afsuski, bora olmayman</label>
+        </div>
+      </div>
+
+      <button type="submit" class="btn-solid" id="rsvpSubmit">Javobni yuborish</button>
+    </form>
+
+    <p class="rsvp-success" id="rsvpSuccess">Rahmat! Javobingiz qabul qilindi.</p>
+  </div>
+</section>
+
+<!-- ======================= FINAL ======================= -->
+<section class="final">
+  <p class="final-line reveal">Sizni intiqlik bilan kutamiz</p>
+
+  <div class="monogram reveal reveal-delay-1" id="monogram">
+    <svg viewBox="0 0 120 120">
+      <path class="monogram-letter" d="M20 95 L20 25 L38 25 C 58 25 66 40 66 60 C 66 80 58 95 38 95 Z"/>
+      <path class="monogram-letter" d="M78 95 L78 25 L84 25 L108 78 L108 25 L114 25 L114 95 L108 95 L84 42 L84 95 Z"/>
+    </svg>
+  </div>
+
+  <p class="final-names reveal reveal-delay-2">Dilmurod &amp; Nodirabegim</p>
+  <p class="final-date reveal reveal-delay-3">24 • 09 • 2026</p>
+  <p class="final-venue reveal reveal-delay-3">Fayz restorani</p>
+</section>
+
+<footer>Dilmurod &amp; Nodirabegim · 2026</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- Hero intro sequence ---------- */
+  function runIntro(){
+    var seq = [
+      ['heroDate','show', 150],
+      ['n1','show', 650],
+      ['amp','show', 1050],
+      ['n2','show', 1200],
+      ['tagline','show', 1850],
+      ['caption','show', 2150],
+      ['scrollCue','show', 2450]
+    ];
+    if (reducedMotion){
+      seq.forEach(function(s){ document.getElementById(s[0]).classList.add(s[1]); });
+      return;
+    }
+    seq.forEach(function(s){
+      setTimeout(function(){
+        var el = document.getElementById(s[0]);
+        if (el) el.classList.add(s[1]);
+      }, s[2]);
+    });
+  }
+  runIntro();
+
+  /* ---------- Scroll reveal via IntersectionObserver ---------- */
+  var revealEls = document.querySelectorAll('.reveal, .word-reveal, .monogram');
+  if ('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting){
+          entry.target.classList.add('in-view');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2, rootMargin: '0px 0px -8% 0px' });
+    revealEls.forEach(function(el){ io.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('in-view'); });
+  }
+
+  /* ---------- September 2026 calendar ---------- */
+  (function buildCalendar(){
+    var grid = document.getElementById('calendarGrid');
+    var dowNames = ['Du','Se','Ch','Pa','Ju','Sh','Ya']; // Dushanba..Yakshanba (Mon-first)
+    dowNames.forEach(function(d){
+      var el = document.createElement('div');
+      el.className = 'dow';
+      el.textContent = d;
+      grid.appendChild(el);
+    });
+
+    var year = 2026, month = 8; // September (0-indexed)
+    var firstDay = new Date(year, month, 1).getDay(); // 0=Sun..6=Sat
+    var mondayIndex = (firstDay + 6) % 7; // convert to Mon-first index
+    var daysInMonth = new Date(year, month + 1, 0).getDate();
+
+    for (var i = 0; i < mondayIndex; i++){
+      var empty = document.createElement('div');
+      empty.className = 'day empty';
+      grid.appendChild(empty);
+    }
+    for (var d = 1; d <= daysInMonth; d++){
+      var cell = document.createElement('div');
+      cell.className = 'day' + (d === 24 ? ' wedding' : '');
+      cell.textContent = d;
+      grid.appendChild(cell);
+    }
+  })();
+
+  /* ---------- Countdown ---------- */
+  (function countdown(){
+    var target = new Date(2026, 8, 24, 0, 0, 0).getTime(); // 24 Sept 2026 local time
+    var elD = document.getElementById('cd-days');
+    var elH = document.getElementById('cd-hours');
+    var elM = document.getElementById('cd-min');
+    var elS = document.getElementById('cd-sec');
+    function pad(n){ return String(n).padStart(2,'0'); }
+    function tick(){
+      var now = Date.now();
+      var diff = Math.max(0, target - now);
+      var days = Math.floor(diff / 86400000);
+      var hours = Math.floor((diff % 86400000) / 3600000);
+      var mins = Math.floor((diff % 3600000) / 60000);
+      var secs = Math.floor((diff % 60000) / 1000);
+      elD.textContent = pad(days);
+      elH.textContent = pad(hours);
+      elM.textContent = pad(mins);
+      elS.textContent = pad(secs);
+    }
+    tick();
+    setInterval(tick, 1000);
+  })();
+
+  /* ---------- RSVP form ---------- */
+  (function rsvp(){
+    var form = document.getElementById('rsvpForm');
+    var success = document.getElementById('rsvpSuccess');
+    var submitBtn = document.getElementById('rsvpSubmit');
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var name = document.getElementById('guestName').value.trim();
+      var attendance = form.querySelector('input[name="attendance"]:checked');
+      if (!name || !attendance) return;
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'Yuborilmoqda...';
+
+      var payload = { name: name, attendance: attendance.value, submittedAt: new Date().toISOString() };
+
+      /* ============================================================
+         BACKENDGA ULASH (ixtiyoriy):
+         Quyidagi joyga fetch() chaqiruvini qo'shib, payload'ni
+         Telegram Bot, Google Sheets (Apps Script Web App) yoki
+         Supabase kabi xizmatga yuborishingiz mumkin. Masalan:
+
+         fetch('https://YOUR-ENDPOINT.example.com/rsvp', {
+           method: 'POST',
+           headers: { 'Content-Type': 'application/json' },
+           body: JSON.stringify(payload)
+         });
+      ============================================================= */
+
+      setTimeout(function(){
+        form.style.display = 'none';
+        success.classList.add('show');
+      }, 500);
+    });
+  })();
+
+  /* ---------- Music toggle ---------- */
+  (function music(){
+    var btn = document.getElementById('musicBtn');
+    var label = document.getElementById('musicLabel');
+    var audio = document.getElementById('bgAudio');
+    var playing = false;
+
+    btn.addEventListener('click', function(){
+      if (!audio.querySelector('source') && !audio.currentSrc){
+        // Hech qanday audio fayl ulanmagan — sukut bo'yicha holat.
+        label.textContent = playing ? 'Musiqa ♫' : 'Fayl yo‘q';
+        return;
+      }
+      playing = !playing;
+      if (playing){
+        audio.play().catch(function(){ playing = false; });
+        btn.classList.add('playing');
+        label.textContent = 'Musiqa yoqilgan';
+      } else {
+        audio.pause();
+        btn.classList.remove('playing');
+        label.textContent = 'Musiqa ♫';
+      }
+      btn.setAttribute('aria-pressed', String(playing));
+    });
+  })();
+
+  /* ---------- Subtle cursor-follow parallax on botanical elements (desktop only) ---------- */
+  if (!reducedMotion && window.matchMedia('(pointer:fine)').matches){
+    var botanicals = document.querySelectorAll('.botanical');
+    var mx = 0, my = 0, cx = 0, cy = 0;
+    window.addEventListener('mousemove', function(e){
+      mx = (e.clientX / window.innerWidth - 0.5) * 2;
+      my = (e.clientY / window.innerHeight - 0.5) * 2;
+    });
+    function raf(){
+      cx += (mx - cx) * 0.04;
+      cy += (my - cy) * 0.04;
+      botanicals.forEach(function(el, i){
+        var depth = (i % 2 === 0) ? 10 : -14;
+        el.style.transform = 'translate(' + (cx*depth) + 'px,' + (cy*depth) + 'px)';
+      });
+      requestAnimationFrame(raf);
+    }
+    raf();
+  }
+
+  /* ---------- Map link placeholder guard ---------- */
+  document.getElementById('mapLink').addEventListener('click', function(e){
+    if (this.getAttribute('href') === '#'){
+      e.preventDefault();
+    }
+  });
+
+})();
+</script>
+</body>
+</html>
