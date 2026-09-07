@@ -49,6 +49,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
+<!-- Bu ikkita rasm birinchi bo'lib ko'rinadi (Ochish ekrani + Hero),
+     shuning uchun ularni brauzer parallel ravishda darhol yuklab olishi uchun
+     oldindan yuklashni (preload) belgilaymiz. Fayl nomlarini o'zgartirsangiz,
+     shu yerdagi href qiymatlarini ham moslashtiring. -->
+<link rel="preload" as="image" href="01.jpg" fetchpriority="high" />
+<link rel="preload" as="image" href="02.jpg" fetchpriority="high" />
+
 <style>
   /* ===================== TOKENS — DARK LUXURY ===================== */
   :root{
@@ -286,14 +293,7 @@
     .gate{ transition-duration:.01s; }
   }
 
-  /* ===================== PER-SECTION BACKGROUND PHOTOS =====================
-     Har bir bo'lim o'zining fon rasmiga ega bo'lishi mumkin.
-     Rasm qo'shish uchun HTML ichida tegishli
-       style="--bg-image:url('images/bg-....jpg')"
-     qatoridagi yo'lni o'zgartiring. Agar rasm qo'yilmasa — bo'lim
-     joriy tungi (dark) fonda chiroyli ko'rinishda qoladi (hech narsa
-     buzilmaydi). Tavsiya etilgan o'lcham: kamida 1600×2000px, JPG, <400KB.
-  ============================================================================ */
+  /* ===================== PER-SECTION BACKGROUND PHOTOS ===================== */
   .has-bg{ position:relative; overflow:hidden; }
   .bg-wrap{
     position:absolute;
@@ -302,12 +302,13 @@
     overflow:hidden;
     pointer-events:none;
     will-change:transform;
+    background:var(--warm-white);
   }
   .bg-photo{
     position:absolute; inset:0;
-    background-image:var(--bg-image, none);
-    background-size:cover;
-    background-position:center;
+    width:100%; height:100%;
+    object-fit:cover;
+    object-position:center;
     animation:kenburns 26s ease-in-out infinite alternate;
   }
   @keyframes kenburns{
@@ -732,8 +733,10 @@
 <body class="gate-open">
 
 <!-- ======================= GATE / ENVELOPE SCREEN ======================= -->
-<div class="gate" id="gate" style="--bg-image:url('01.jpg')">
-  <div class="bg-wrap"><div class="bg-photo"></div></div>
+<div class="gate" id="gate">
+  <div class="bg-wrap">
+    <img class="bg-photo" src="01.jpg" alt="" loading="eager" fetchpriority="high" decoding="async">
+  </div>
   <div class="bg-overlay ov-hero"></div>
   <div class="gate-botanical">
     <svg viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1"><path d="M100 190 C 90 140, 115 110, 95 70 C 80 42, 100 10, 100 10"/><path d="M100 135 C 75 128, 60 105, 63 82"/><path d="M100 95 C 125 88, 138 65, 135 42"/></svg>
@@ -753,19 +756,16 @@
 
   Musiqa alohida tugmasiz, "Ochish" tugmasi bosilgan zahoti o'zi
   avtomatik yumshoq tarzda (ovoz asta-sekin ko'tarilib) yoqiladi.
-  Brauzerlar sahifa ochilgan zahoti, hech qanday bosishsiz, ovozli
-  audio ijro etishga umuman ruxsat bermaydi (Chrome, Safari va boshqa
-  barcha zamonaviy brauzerlarning xavfsizlik siyosati) — shuning uchun
-  eng tabiiy yechim aynan shu: mehmon "Ochish" tugmasini bosgan payt
-  bir vaqtning o'zida ham taklifnoma ochiladi, ham musiqa boshlanadi.
 ============================================================= -->
-<audio id="bgAudio" loop preload="auto">
+<audio id="bgAudio" loop preload="none">
   <source src="06.mp3" type="audio/mpeg">
 </audio>
 
 <!-- ======================= HERO ======================= -->
-<section class="hero has-bg" style="--bg-image:url('02.jpg')">
-  <div class="bg-wrap"><div class="bg-photo"></div></div>
+<section class="hero has-bg">
+  <div class="bg-wrap">
+    <img class="bg-photo" src="02.jpg" alt="" loading="eager" fetchpriority="high" decoding="async">
+  </div>
   <div class="bg-overlay ov-hero"></div>
   <div class="botanical" style="top:8%; left:4%; width:90px; height:130px;">
     <div class="floaty botanical-inner">
@@ -784,15 +784,17 @@
     <span class="hero-amp" id="amp">&amp;</span>
     <span class="hero-name" id="n2">Nodirabegim</span>
   </div>
-  <p class="hero-tagline" id="tagline">Biz turmush qurmoqdamiz</p>
+  <p class="hero-tagline" id="tagline"></p>
   <p class="hero-caption" id="caption">24 sentabr 2026</p>
 
   <div class="scroll-cue" id="scrollCue"><span>Pastga suring</span><span class="line"></span></div>
 </section>
 
 <!-- ======================= TAKLIFNOMA ======================= -->
-<section class="section has-bg" style="--bg-image:url('03.jpg')">
-  <div class="bg-wrap"><div class="bg-photo"></div></div>
+<section class="section has-bg">
+  <div class="bg-wrap">
+    <img class="bg-photo" src="03.jpg" alt="" loading="lazy" decoding="async">
+  </div>
   <div class="bg-overlay ov-a"></div>
   <div class="container">
     <p class="eyebrow reveal">Taklifnoma</p>
@@ -807,15 +809,17 @@
 <div class="container"><div class="hairline-h"></div></div>
 
 <!-- ======================= TO'Y KUNI ======================= -->
-<section class="section has-bg" style="--bg-image:url('04.jpg')">
-  <div class="bg-wrap"><div class="bg-photo"></div></div>
+<section class="section has-bg">
+  <div class="bg-wrap">
+    <img class="bg-photo" src="04.jpg" alt="" loading="lazy" decoding="async">
+  </div>
   <div class="bg-overlay ov-b"></div>
   <div class="container">
     <p class="eyebrow reveal">To‘y kuni</p>
     <div class="date-block reveal reveal-delay-1">
       <div class="date-num shimmer">24</div>
       <div class="date-sub">Sentabr</div>
-      <div class="date-year">ikki ming yigirma olti</div>
+      <div class="date-year"></div>
     </div>
 
     <div class="calendar reveal reveal-delay-2">
@@ -828,8 +832,10 @@
 </section>
 
 <!-- ======================= COUNTDOWN ======================= -->
-<section class="section has-bg" style="background:var(--warm-white); --bg-image:url('05.jpg')">
-  <div class="bg-wrap"><div class="bg-photo"></div></div>
+<section class="section has-bg" style="background:var(--warm-white);">
+  <div class="bg-wrap">
+    <img class="bg-photo" src="05.jpg" alt="" loading="lazy" decoding="async">
+  </div>
   <div class="bg-overlay ov-c"></div>
   <div class="container">
     <p class="eyebrow reveal">Baxtli kunimizgacha</p>
@@ -846,8 +852,10 @@
 </section>
 
 <!-- ======================= MANZIL ======================= -->
-<section class="section has-bg" style="--bg-image:url('images/bg-venue.jpg')">
-  <div class="bg-wrap"><div class="bg-photo"></div></div>
+<section class="section has-bg">
+  <div class="bg-wrap">
+    <img class="bg-photo" src="07.jpg" alt="" loading="lazy" decoding="async">
+  </div>
   <div class="bg-overlay ov-a"></div>
   <div class="container">
     <p class="eyebrow reveal">Manzil</p>
@@ -855,12 +863,14 @@
     <div class="venue-card reveal reveal-delay-2">
       <p class="venue-address">
         <!-- Manzilni shu yerga kiriting, masalan: "Toshkent sh., ... ko'chasi, 12-uy" -->
-        Aniq manzil tez orada e’lon qilinadi
+        Manzilni biling!
       </p>
       <!--
-        MUHIM: quyidagi href="#" o'rniga real havolalarni qo'ying, masalan:
-        Yandex: href="https://yandex.com/maps/?text=Fayz+restorani"
-        Google: href="https://maps.google.com/?q=Fayz+restorani"
+        MANZIL SOZLAMASI: pastdagi skript ichidagi VENUE_GOOGLE va
+        VENUE_YANDEX obyektlarida koordinatalarni to'ldiring (har biri
+        alohida, chunki ikkala xizmat marshrutni turlicha quradi) —
+        shunda "Yandex" va "Google" tugmalari mehmonning joriy
+        joylashuvidan to'g'ridan-to'g'ri MARSHRUT bilan ochiladi.
       -->
       <div class="map-buttons">
         <a class="btn-outline" href="#" id="mapLinkYandex" target="_blank" rel="noopener">Yandex</a>
@@ -872,72 +882,14 @@
 
 <div class="container"><div class="hairline-h"></div></div>
 
-<!-- ======================= DRESS CODE ======================= -->
-<section class="section has-bg" style="--bg-image:url('images/bg-dresscode.jpg')">
-  <div class="bg-wrap"><div class="bg-photo"></div></div>
-  <div class="bg-overlay ov-d"></div>
-  <div class="container">
-    <p class="eyebrow reveal">Dress code</p>
-    <p class="body-text reveal reveal-delay-1">Bayramimiz muhitiga mos nafis va tantanali libos tanlashingizdan mamnun bo‘lamiz.</p>
-    <div class="palette reveal reveal-delay-2">
-      <div class="swatch" style="background:#F7F1E6;" title="Ivory"></div>
-      <div class="swatch" style="background:#E9D8BB;" title="Champagne"></div>
-      <div class="swatch" style="background:#DFD1B9;" title="Beige"></div>
-      <div class="swatch" style="background:#B08D57;" title="Muted gold"></div>
-      <div class="swatch" style="background:#4A4038;" title="Deep taupe"></div>
-    </div>
-  </div>
-</section>
 
-<!-- ======================= RSVP ======================= -->
-<section class="section has-bg" style="background:var(--warm-white); --bg-image:url('images/bg-rsvp.jpg')">
-  <div class="bg-wrap"><div class="bg-photo"></div></div>
-  <div class="bg-overlay ov-c"></div>
-  <div class="container">
-    <p class="eyebrow reveal">RSVP</p>
-    <h2 class="section-title reveal reveal-delay-1">Sizni kutamiz!</h2>
-    <p class="body-text reveal reveal-delay-2">Iltimos, tashrifingizni tasdiqlang.</p>
 
-    <form class="rsvp-form reveal reveal-delay-3" id="rsvpForm">
-      <div class="field">
-        <label for="guestName">Ismingiz</label>
-        <input type="text" id="guestName" name="guestName" placeholder="Ism familiyangiz" required />
-      </div>
 
-      <div class="field">
-        <label>Ishtirok holati</label>
-        <div class="rsvp-options">
-          <input type="radio" id="opt-yes" name="attendance" value="Albatta, boraman" required>
-          <label for="opt-yes">Albatta, boraman</label>
-          <input type="radio" id="opt-no" name="attendance" value="Afsuski, bora olmayman">
-          <label for="opt-no">Afsuski, bora olmayman</label>
-        </div>
-      </div>
+      
 
-      <button type="submit" class="btn-solid" id="rsvpSubmit">Javobni yuborish</button>
-    </form>
 
-    <p class="rsvp-success" id="rsvpSuccess">Rahmat! Javobingiz qabul qilindi.</p>
-  </div>
-</section>
 
-<!-- ======================= FINAL ======================= -->
-<section class="final has-bg" style="--bg-image:url('images/bg-final.jpg')">
-  <div class="bg-wrap"><div class="bg-photo"></div></div>
-  <div class="bg-overlay ov-final"></div>
-  <p class="final-line reveal">Sizni intiqlik bilan kutamiz</p>
 
-  <div class="monogram reveal reveal-delay-1" id="monogram">
-    <svg viewBox="0 0 120 120">
-      <path class="monogram-letter" d="M20 95 L20 25 L38 25 C 58 25 66 40 66 60 C 66 80 58 95 38 95 Z"/>
-      <path class="monogram-letter" d="M78 95 L78 25 L84 25 L108 78 L108 25 L114 25 L114 95 L108 95 L84 42 L84 95 Z"/>
-    </svg>
-  </div>
-
-  <p class="final-names reveal reveal-delay-2">Dilmurod &amp; Nodirabegim</p>
-  <p class="final-date reveal reveal-delay-3">24 • 09 • 2026</p>
-  <p class="final-venue reveal reveal-delay-3">Fayz restorani</p>
-</section>
 
 <footer>Dilmurod &amp; Nodirabegim · 2026</footer>
 
@@ -946,6 +898,62 @@
   "use strict";
 
   var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ============================================================
+     MANZIL (VENUE) SOZLAMASI — GOOGLE VA YANDEX ALOHIDA
+     ============================================================
+     Google va Yandex koordinatalarni turlicha aniqlik bilan ko'rsatishi
+     mumkin, shuning uchun ular endi bir-biridan mustaqil sozlanadi.
+     Har biri uchun koordinatani mos xarita ilovasidan oling:
+
+     GOOGLE: Google Maps'da joyni oching → nuqtani bosib turing →
+             pastda chiqqan raqamlarni nusxalang (masalan: 41.311081).
+
+     YANDEX: Yandex Maps'da (yandex.uz/maps) joyni toping → nuqtani
+             bosing → pastda "Koordinatalar" chiqadi, uni nusxalang.
+
+     Koordinata qo'ymasangiz (null qoldirsangiz) ham ishlayveradi —
+     o'sha holda tugma manzil NOMI bo'yicha qidiradi (kamroq aniq).
+  ============================================================= */
+  var VENUE_GOOGLE = {
+    name: 'Fayz restorani',
+    lat: 41.381305369617465,
+    lng: 69.3120279514391
+  };
+
+  var VENUE_YANDEX = {
+    name: 'Fayz restorani',
+    lat: 41.381597, 
+    lng: 69.311964
+  };
+
+  function setupMapLinks(){
+    var yandex = document.getElementById('mapLinkYandex');
+    var google = document.getElementById('mapLinkGoogle');
+    if (!yandex && !google) return;
+
+    if (google){
+      var gHasCoords = typeof VENUE_GOOGLE.lat === 'number' && typeof VENUE_GOOGLE.lng === 'number';
+      var gDest = gHasCoords ? (VENUE_GOOGLE.lat + ',' + VENUE_GOOGLE.lng) : encodeURIComponent(VENUE_GOOGLE.name);
+      // Google: to'g'ridan-to'g'ri marshrut (yo'nalish) rejimini ochadi
+      google.href = 'https://www.google.com/maps/dir/?api=1&destination=' + gDest + '&travelmode=driving';
+    }
+
+    if (yandex){
+      var yHasCoords = typeof VENUE_YANDEX.lat === 'number' && typeof VENUE_YANDEX.lng === 'number';
+      var yDest = yHasCoords ? (VENUE_YANDEX.lat + ',' + VENUE_YANDEX.lng) : encodeURIComponent(VENUE_YANDEX.name);
+      // Yandex: mintaqaviy domen (yandex.uz) marshrut funksiyasi bilan
+      // yaxshiroq ishlaydi. "~" belgisi manzilgacha marshrut qurishni
+      // bildiradi, boshlanish nuqtasi bo'sh qoldirilsa — mehmonning
+      // joriy joylashuvi so'raladi (brauzer joylashuvga ruxsat so'raydi).
+      if (yHasCoords){
+        yandex.href = 'https://yandex.uz/maps/?rtext=~' + yDest + '&rtt=auto';
+      } else {
+        yandex.href = 'https://yandex.uz/maps/?text=' + yDest;
+      }
+    }
+  }
+  setupMapLinks();
 
   /* ---------- Hero intro sequence (runs once the gate opens) ---------- */
   function startIntro(){
@@ -1008,6 +1016,7 @@
   /* ---------- September 2026 calendar ---------- */
   (function buildCalendar(){
     var grid = document.getElementById('calendarGrid');
+    if (!grid) return;
     var dowNames = ['Du','Se','Ch','Pa','Ju','Sh','Ya']; // Dushanba..Yakshanba (Mon-first)
     dowNames.forEach(function(d){
       var el = document.createElement('div');
@@ -1041,6 +1050,7 @@
     var elH = document.getElementById('cd-hours');
     var elM = document.getElementById('cd-min');
     var elS = document.getElementById('cd-sec');
+    if (!elD || !elH || !elM || !elS) return;
     function pad(n){ return String(n).padStart(2,'0'); }
     function tick(){
       var now = Date.now();
@@ -1058,9 +1068,10 @@
     setInterval(tick, 1000);
   })();
 
-  /* ---------- RSVP form ---------- */
+  /* ---------- RSVP form (ishlaydi faqat forma sahifada mavjud bo'lsa) ---------- */
   (function rsvp(){
     var form = document.getElementById('rsvpForm');
+    if (!form) return; // RSVP bo'limi hozircha sahifada yo'q — xato chiqmasligi uchun chiqib ketamiz
     var success = document.getElementById('rsvpSuccess');
     var submitBtn = document.getElementById('rsvpSubmit');
 
@@ -1105,9 +1116,7 @@
     var p = audio.play();
     if (p && typeof p.catch === 'function'){
       p.catch(function(){
-        /* Brauzer bloklagan bo'lishi mumkin (masalan audio fayl hali qo'shilmagan,
-           yoki juda kam sonli hollarda brauzer siyosati). Sahifa baribir ishlashda
-           davom etadi — bu shunchaki musiqa boshlanmaydi, xato chiqmaydi. */
+        /* Brauzer bloklagan bo'lishi mumkin. Sahifa baribir ishlashda davom etadi. */
       });
     }
     var steps = 30;
@@ -1163,12 +1172,12 @@
     raf();
   }
 
-  /* ---------- Map link placeholder guard ---------- */
+  /* ---------- Map link placeholder guard (agar VENUE bo'sh qolsa) ---------- */
   ['mapLinkYandex','mapLinkGoogle'].forEach(function(id){
     var el = document.getElementById(id);
     if (!el) return;
     el.addEventListener('click', function(e){
-      if (this.getAttribute('href') === '#'){ e.preventDefault(); }
+      if (!this.getAttribute('href') || this.getAttribute('href') === '#'){ e.preventDefault(); }
     });
   });
 
