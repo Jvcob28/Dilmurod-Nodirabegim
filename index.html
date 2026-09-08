@@ -3,20 +3,15 @@
   ============================================================================
   FON RASMLARI (BACKGROUND PHOTOS) — QO'LLANMA
   ============================================================================
-  Har bir bo'lim o'z fon rasmiga ega. Rasm qo'shish uchun quyidagi fayllarni
-  "images" papkasiga joylashtiring (nomlari aynan shunday bo'lishi kerak,
-  yoki har bir --bg-image: url('...') qatoridagi yo'lni o'zingiz xohlagan
-  nomga o'zgartiring):
-
-    images/bg-gate.jpg          — ochilish ekrani ("Ochish" tugmasi fone)
-    images/bg-hero.jpg          — birinchi ekran (ismlar)
-    images/bg-invitation.jpg    — "Aziz mehmonimiz!" bo'limi
-    images/bg-date.jpg          — "To'y kuni" / kalendar bo'limi
-    images/bg-countdown.jpg     — orqaga sanoq bo'limi
-    images/bg-venue.jpg         — "Manzil" bo'limi
-    images/bg-dresscode.jpg     — "Dress code" bo'limi
-    images/bg-rsvp.jpg          — RSVP forma bo'limi
-    images/bg-final.jpg         — yakuniy ekran (D&N monogramma)
+  Har bir bo'lim o'z fon rasmiga ega:
+    01.jpg — ochilish ekrani ("Ochish")
+    02.jpg — birinchi ekran (ismlar)
+    03.jpg — Ar-Rum surasi (ayat) bo'limi
+    08.jpg — mehmonga murojaat / taklifnoma bo'limi
+    04.jpg — "To'y kuni" / kalendar bo'limi
+    05.jpg — orqaga sanoq bo'limi
+    07.jpg — "Manzil" bo'limi
+    09.jpg — "Rahmat!" (minnatdorchilik) bo'limi
 
   Tavsiya: har biri kamida 1600×2000px, JPG format, 300–500KB atrofida
   (sifat va tezlik muvozanati uchun). Agar biror rasm qo'yilmasa — o'sha
@@ -310,6 +305,12 @@
     object-fit:cover;
     object-position:center;
     animation:kenburns 26s ease-in-out infinite alternate;
+    opacity:0;
+    transition:opacity .9s ease;
+  }
+  .bg-photo.loaded{ opacity:1; }
+  @media (prefers-reduced-motion: reduce){
+    .bg-photo{ transition-duration:.2s; }
   }
   @keyframes kenburns{
     0%{ transform:scale(1) translate(0,0); }
@@ -790,7 +791,7 @@
   <div class="scroll-cue" id="scrollCue"><span>Pastga suring</span><span class="line"></span></div>
 </section>
 
-<!-- ======================= TAKLIFNOMA ======================= -->
+<!-- ======================= AR-RUM SURASI (AYAT) ======================= -->
 <section class="section has-bg">
   <div class="bg-wrap">
     <img class="bg-photo" src="03.jpg" alt="" loading="lazy" decoding="async">
@@ -803,6 +804,24 @@
     <p class="body-text reveal reveal-delay-2">o‘zlaringizdan juftlar yaratgani va o‘rtangizda</p>
     <p class="body-text reveal reveal-delay-3">mehr-muhabbat va rahm-shafqat paydo qilganidir.</p>
     <p class="signature reveal reveal-delay-4"><strong></strong></p>
+  </div>
+</section>
+
+<div class="container"><div class="hairline-h"></div></div>
+
+<!-- ======================= TAKLIFNOMA (MEHMONGA MUROJAAT) ======================= -->
+<section class="section has-bg">
+  <div class="bg-wrap">
+    <img class="bg-photo" src="08.jpg" alt="" loading="lazy" decoding="async">
+  </div>
+  <div class="bg-overlay ov-b"></div>
+  <div class="container">
+    <p class="eyebrow reveal">Aziz mehmonimiz</p>
+    <h2 class="section-title reveal reveal-delay-1">Sizni taklif etamiz!</h2>
+    <p class="body-text reveal reveal-delay-2">Hayotimizning eng unutilmas va baxtli kunida Sizni yonimizda ko‘rish biz uchun katta baxt.</p>
+    <p class="body-text reveal reveal-delay-2">Sizni nikoh to‘yimiz munosabati bilan tashkil etiladigan tantanali oqshomimizga chin qalbimizdan taklif etamiz.</p>
+    <p class="body-text reveal reveal-delay-3">Ushbu quvonchli kunimizni biz bilan birga nishonlab, baxtimizga sherik bo‘ling!</p>
+    <p class="signature reveal reveal-delay-4">Hurmat bilan,<strong>Dilmurod &amp; Nodirabegim</strong></p>
   </div>
 </section>
 
@@ -882,6 +901,23 @@
 
 <div class="container"><div class="hairline-h"></div></div>
 
+<!-- ======================= MINNATDORCHILIK ======================= -->
+<section class="section has-bg">
+  <div class="bg-wrap">
+    <img class="bg-photo" src="09.jpg" alt="" loading="lazy" decoding="async">
+  </div>
+  <div class="bg-overlay ov-final"></div>
+  <div class="container">
+    <p class="eyebrow reveal">Minnatdorchilik</p>
+    <h2 class="section-title reveal reveal-delay-1">Rahmat!</h2>
+    <p class="body-text reveal reveal-delay-2">Sizni ushbu maxsus kunimizda kutish — biz uchun alohida quvonch.</p>
+    <p class="body-text reveal reveal-delay-3">Vaqtingizni ajratib, baxtimizga sherik bo‘lganingiz uchun chin qalbimizdan minnatdormiz.</p>
+    <p class="signature reveal reveal-delay-4">Hurmat bilan,<strong>Dilmurod &amp; Nodirabegim</strong></p>
+  </div>
+</section>
+
+<div class="container"><div class="hairline-h"></div></div>
+
 
 
 
@@ -898,6 +934,19 @@
   "use strict";
 
   var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- Fade photos in only once fully loaded (hides ugly progressive scan) ---------- */
+  (function fadeInPhotos(){
+    var photos = document.querySelectorAll('.bg-photo');
+    photos.forEach(function(img){
+      if (img.complete && img.naturalWidth > 0){
+        img.classList.add('loaded');
+      } else {
+        img.addEventListener('load', function(){ img.classList.add('loaded'); });
+        img.addEventListener('error', function(){ img.classList.add('loaded'); }); // rasm topilmasa ham osilib qolmasin
+      }
+    });
+  })();
 
   /* ============================================================
      MANZIL (VENUE) SOZLAMASI — GOOGLE VA YANDEX ALOHIDA
